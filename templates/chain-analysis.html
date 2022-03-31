@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta http-equiv="refresh" content="20">
+    <style>
+        body { font-family: arial; margin: 20px; }
+        td { padding: 5px; }
+        table { padding: 10px;}
+        .bullish { background: green; color: white; }
+        .bearish { background: red; color: white; }
+        * { box-sizing: border-box; }
+        .column { float: left; width: 33.33%;padding: 10px; height: 300px; }
+        .column-header { float: left; text-align: center; width: 33.33%;padding: 10px; }
+        .row:after { content: ""; display: table; clear: both; }
+    </style>
+</head>
+<body>
+    <div class="row">
+        <div class="column-header">Call Data</div>
+        <div class="column-header">Put Data</div>
+        <div class="column-header">Call/Put relative Data</div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <table>
+                {% for col in callData%}
+                    <tr>
+                    {% for row in col%}
+                        <td>{{row}}</td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="column">
+            <table>
+                {% for col in putData%}
+                    <tr>
+                    {% for row in col%}
+                        <td>{{row}}</td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+        <div class="column">
+            <table>
+                {% for col in callPutData%}
+                    <tr>
+                    {% for row in col%}
+                        <td>{{row}}</td>
+                    {% endfor %}
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+      </div>
+</body>
+</html>
